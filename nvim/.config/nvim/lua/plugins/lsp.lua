@@ -11,6 +11,18 @@ return {
           },
         },
       },
+      twiggy_language_server = {
+        settings = {
+          twiggy = {
+            framework = "symfony",
+            phpExecutable = "chess-php",
+            symfonyConsolePath = "app/console",
+            diagnostics = {
+              twigCsFixer = false,
+            },
+          },
+        },
+      },
     },
   },
 }
