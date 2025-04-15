@@ -18,7 +18,7 @@ return {
             phpExecutable = "chess-php",
             symfonyConsolePath = "app/console",
             diagnostics = {
-              twigCsFixer = false,
+              twigCsFixer = true,
             },
           },
         },
