@@ -5,6 +5,7 @@ return {
   opts = function(_, opts)
     return vim.tbl_deep_extend("force", opts or {}, {
       grep = {
+        rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --sort path -e",
         actions = {
           ["ctrl-y"] = {
             fn = function(selected, opts)
