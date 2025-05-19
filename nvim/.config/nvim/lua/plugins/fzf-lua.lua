@@ -7,21 +7,20 @@ return {
       grep = {
         actions = {
           ["ctrl-y"] = {
-            fn = function(selected, _)
-              -- Extract the file path from the selection
-              -- (First column before the colon in grep results)
-              local file = selected[1]:match("^([^:]+)")
+            fn = function(selected, opts)
+              local path = require("fzf-lua.path")
+              local entry = path.entry_to_file(selected[1], opts)
 
-              -- Copy to register/clipboard
-              vim.fn.setreg('"', file)
-              vim.fn.setreg("+", file)
-
-              -- Optional: Show a message
-              vim.notify("Copied file path: " .. file)
+              if entry and entry.path then
+                vim.fn.setreg('"', entry.path)
+                vim.fn.setreg("+", entry.path)
+                vim.notify("Copied file path: " .. entry.path)
+              end
             end,
             desc = "copy file path",
             exec_silent = true,
           },
+          ["ctrl-o"] = { fn = require("fzf-lua").actions.file_edit, reload = true },
         },
       },
     })
