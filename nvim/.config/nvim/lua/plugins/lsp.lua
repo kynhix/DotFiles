@@ -10,6 +10,20 @@ return {
             },
           },
         },
+        root_markers = {
+          "tsconfig.json",
+        },
+        root_dir = function(bufnr, on_dir)
+          local root = vim.fs.root(bufnr, { "tsconfig.json" })
+          if root then
+            return on_dir(root)
+          end
+        end,
+      },
+      vue_ls = {
+        root_markers = {
+          "tsconfig.json",
+        },
       },
       css_variables = {
         filetypes = { "css", "scss", "less", "vue" }, -- Include "vue" here
