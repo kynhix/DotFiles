@@ -44,6 +44,10 @@ return {
               return get_test_dir()
             end,
 
+            extra_args = {
+              "--quiet", -- Suppress stdout from tests
+            },
+
             experimental = {
               telescope = {
                 -- If true, a telescope picker will be used for `:NeotestPlaywrightProject`.
