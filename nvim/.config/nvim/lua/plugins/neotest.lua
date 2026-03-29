@@ -27,7 +27,7 @@ return {
 
             enable_dynamic_test_discovery = true,
 
-            preset = "none", -- "none" | "headed" | "debug"
+            preset = "debug", -- "none" | "headed" | "debug"
 
             get_playwright_binary = function()
               return get_test_dir() .. "/node_modules/.bin/playwright"

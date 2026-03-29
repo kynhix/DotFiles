@@ -3,4 +3,4 @@
 -- Add any additional options here
 
 vim.g.lazyvim_prettier_needs_config = true
-vim.g.lazyvim_eslint_auto_format = false -- turn of eslint auto format
+vim.g.lazyvim_eslint_auto_format = false -- turn off eslint auto format
