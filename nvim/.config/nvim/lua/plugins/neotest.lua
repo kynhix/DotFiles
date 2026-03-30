@@ -7,18 +7,6 @@ return {
   config = function()
     local neotest = require("neotest")
 
-    -- this doesn't seem to work properly yet
-    local function get_test_dir()
-      local cwd = vim.uv.cwd()
-      if vim.endswith(cwd or "", "/chess") then
-        return cwd .. "/client/tests"
-      end
-      if vim.endswith(cwd or "", "/chess/client") then
-        return cwd .. "/tests"
-      end
-      return cwd
-    end
-
     neotest.setup({
       adapters = {
         require("neotest-playwright").adapter({
@@ -27,33 +15,14 @@ return {
 
             enable_dynamic_test_discovery = true,
 
-            preset = "debug", -- "none" | "headed" | "debug"
-
-            get_playwright_binary = function()
-              return get_test_dir() .. "/node_modules/.bin/playwright"
-            end,
-
-            get_playwright_config = function()
-              return get_test_dir() .. "/playwright.config.ts"
-            end,
-
-            -- Controls the location of the spawned test process. Has no affect on
-            -- neither the location of the binary nor the location of the playwright
-            -- config file.
-            get_cwd = function()
-              return get_test_dir()
-            end,
+            preset = "debug",
 
             extra_args = {
-              "--quiet", -- Suppress stdout from tests
+              -- "--quiet", -- Suppress stdout from tests
             },
 
             experimental = {
               telescope = {
-                -- If true, a telescope picker will be used for `:NeotestPlaywrightProject`.
-                -- Otherwise, `vim.ui.select` is used.
-                -- In normal mode, `<Tab>` toggles the project under the cursor.
-                -- `<CR>` (enter key) applies the selection.
                 enabled = true,
                 opts = {},
               },
