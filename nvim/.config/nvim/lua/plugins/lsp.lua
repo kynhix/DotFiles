@@ -13,19 +13,20 @@ return {
               maxTsServerMemory = 8092,
             },
           },
-          vtsls = {
-            tsserver = {
-              globalPlugins = {
-                {
-                  name = "@vue/typescript-plugin",
-                  location = vim.fn.stdpath("data")
-                    .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-                  languages = { "vue" },
-                  configNamespace = "typescript",
-                },
-              },
-            },
-          },
+          -- Deprecated
+          -- vtsls = {
+          --   tsserver = {
+          --     globalPlugins = {
+          --       {
+          --         name = "@vue/typescript-plugin",
+          --         location = vim.fn.stdpath("data")
+          --           .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+          --         languages = { "vue" },
+          --         configNamespace = "typescript",
+          --       },
+          --     },
+          --   },
+          -- },
         },
         root_markers = {
           "tsconfig.json",

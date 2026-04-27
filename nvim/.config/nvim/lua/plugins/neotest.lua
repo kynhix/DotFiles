@@ -44,9 +44,9 @@ return {
               return get_test_dir()
             end,
 
-            extra_args = {
-              "--quiet", -- Suppress stdout from tests
-            },
+            -- extra_args = {
+            --   "--quiet", -- Suppress stdout from tests
+            -- },
 
             experimental = {
               telescope = {
